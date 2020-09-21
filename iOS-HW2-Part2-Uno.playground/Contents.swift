@@ -35,7 +35,7 @@ import UIKit
  */
 
 
-var blue_5 = UIImage(named: "Blue_6.png")
+var blue_5 = UIImage(named: "Blue_5.png")
 var red_9 = UIImage(named: "Red_9.png")
 
 var green_Skip = UIImage(named: "Green_Skip.png")
@@ -89,17 +89,116 @@ var wild_Draw = UIImage(named: "Wild_Draw.png")
 
 // struct ...
 
+struct Card {
+    
+    var color: String?
+    var number: Int?
+    var action: String?
+    
+    func imageName () -> String {
+        
+        if color != nil && number != nil && action == nil {
+            
+            return "\(color!)_\(number!).png"
+
+        }else if number == nil && color != nil {
+            
+            return "\(color!)_\(action!).png"
+            
+        }else if action != nil &&  color == nil && number == nil {
+            
+            return "\(action!).png"
+            
+        }else {
+            
+            return "Red_1.png"
+            
+        }
+    }
+}
+
+
+//var cardred = Card(color: "Red", number: 6)
+//UIImage(named: cardred.imageName())
+//print (cardred.imageName())
+
+//struct Action {
+//
+//    var color: String
+//    var action: String
+//
+//    func actionImage () -> String {
+//
+//        return ("\(color)_\(action).png")
+//
+//    }
+//
+//}
+//
+//struct Special {
+//
+//    var special: String
+//
+//    func specialImage () -> String {
+//
+//        return ("\(special).png")
+//
+//    }
+//
+//}
+
+var cards: [Card] = []
+var colors = ["Green", "Red", "Blue", "Yellow"]
+var actionCards = ["Draw", "Reverse", "Skip"]
+var specialCards = ["Wild_Draw", "Wild"]
+
+for colour in colors {
+    for number in 0...9 {
+        if number == 0 {
+       cards.append(Card(color: colour, number: number))
+        }else{
+           cards.append(Card(color: colour, number: number))
+            cards.append(Card(color: colour, number: number))
+        }
+    }
+    for action in actionCards {
+        cards.append(Card(color: colour, action: action))
+        cards.append(Card(color: colour, action: action))
+    }
+    for special in specialCards {
+        cards.append(Card(action: special))
+    }
+    
+}
+
+//for number in 1...9 {
+//        for colour in colors {
+//        cards.append(Card(color: colour, number: number))
+//    }
+//}
+//
+//for action in actionCards {
+//    for color in colors{
+//        for number in 0...2 {
+//        cards.append(Card(color: color, action: action))
+//        }
+//    }
+//}
+
+
+
+
 
 
 
 
 // لا تقم بإزالة الملاحظات إلا عند وصولك للمطلوب الثالث
 
-//
-//let randomCard = cards.randomElement()!
-//let randomCardImage = UIImage(named: randomCard.imageName())
-//
-//
-//let cardImages = cards.map{UIImage(named: $0.imageName())}
-//randomCardImage
-//cardImages
+
+let randomCard = cards.randomElement()!
+let randomCardImage = UIImage(named: randomCard.imageName())
+
+
+let cardImages = cards.map{UIImage(named: $0.imageName())}
+randomCardImage
+cardImages
