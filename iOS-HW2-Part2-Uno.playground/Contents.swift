@@ -117,36 +117,6 @@ struct Card {
     }
 }
 
-
-//var cardred = Card(color: "Red", number: 6)
-//UIImage(named: cardred.imageName())
-//print (cardred.imageName())
-
-//struct Action {
-//
-//    var color: String
-//    var action: String
-//
-//    func actionImage () -> String {
-//
-//        return ("\(color)_\(action).png")
-//
-//    }
-//
-//}
-//
-//struct Special {
-//
-//    var special: String
-//
-//    func specialImage () -> String {
-//
-//        return ("\(special).png")
-//
-//    }
-//
-//}
-
 var cards: [Card] = []
 var colors = ["Green", "Red", "Blue", "Yellow"]
 var actionCards = ["Draw", "Reverse", "Skip"]
@@ -170,27 +140,6 @@ for colour in colors {
     }
     
 }
-
-//for number in 1...9 {
-//        for colour in colors {
-//        cards.append(Card(color: colour, number: number))
-//    }
-//}
-//
-//for action in actionCards {
-//    for color in colors{
-//        for number in 0...2 {
-//        cards.append(Card(color: color, action: action))
-//        }
-//    }
-//}
-
-
-
-
-
-
-
 
 // لا تقم بإزالة الملاحظات إلا عند وصولك للمطلوب الثالث
 
